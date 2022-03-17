@@ -1,5 +1,6 @@
-const { CommandoClient } = require('discord.js-commando');
+const { CommandoClient, Client } = require('discord.js-commando');
 const path = require('path');
+const config = require('./config.json');
 
 const client = new CommandoClient({
     commandPrefix: '-',
@@ -29,4 +30,4 @@ client.once('ready', () => {
 
 client.on('error', (error) => console.error(error));
 
-client.login(process.env.TOKEN);
+client.login(config.token, process.env.TOKEN);
