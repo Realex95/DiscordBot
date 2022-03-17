@@ -30,4 +30,6 @@ client.once('ready', () => {
 
 client.on('error', (error) => console.error(error));
 
+console.log(process.env.TOKEN);
+
 client.login(process.env.TOKEN);
