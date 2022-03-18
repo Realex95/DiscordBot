@@ -1,5 +1,7 @@
+const dotenv = require('dotenv').config();
 const { CommandoClient, Client } = require('discord.js-commando');
 const path = require('path');
+const config = require('./config');
 
 const client = new CommandoClient({
     commandPrefix: '-',
@@ -15,6 +17,7 @@ client.registry
     .registerDefaultGroups()
     .registerDefaultCommands()
     .registerGroup('music', 'Music')
+    .registerGroup('command', 'Command')
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.server = {
@@ -31,4 +34,4 @@ client.once('ready', () => {
 
 client.on('error', (error) => console.error(error));
 
-client.login('OTUzNzUzNjkyODA3NTI0NDUz.YjJKWA.lXrsOQxNbs94u-MN2RECYHqd9GA');
+client.login(process.env.TOKEN);
